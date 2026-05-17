@@ -1,0 +1,65 @@
+name: Bug Report  # 名称：缺陷报告
+description: File a bug report  # 描述：提交一个缺陷报告
+title: "[Bug]: "  # 标题前缀
+labels: ["bug", "triage"]  # 标签：自动添加 "bug" 和 "triage"
+projects: ["octo-org/1", "octo-org/44"]  # 关联项目（示例）
+assignees: 
+  - octocat  # 指派给（示例）
+
+body:  # 表单内容
+  - type: markdown
+    attributes:
+      value: |
+        感谢您花时间填写这份缺陷报告！
+  - type: input
+    id: contact
+    attributes:
+      label: 联系方式 (Contact Details)
+      description: 如果我们需要更多信息，如何联系您？
+      placeholder: 例如：email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么？(What happened?)
+      description: 请告诉我们，您期望发生什么？
+      placeholder: 告诉我们您看到了什么！
+      value: "一个缺陷发生了！(A bug happened!)"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: 版本 (Version)
+      description: 您运行的是哪个版本的软件？
+      options:
+        - 1.0.2 (默认 Default)
+        - 1.0.3 (测试版 Edge)
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 您在哪些浏览器上看到此问题？(What browsers...)
+      multiple: true  # 允许多选
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志输出 (Relevant log output)
+      description: 请复制并粘贴任何相关的日志输出。这将自动格式化为代码，无需输入反引号。
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 行为准则 (Code of Conduct)
+      description: 提交此问题即表示您同意遵守我们的 [行为准则](https://example.com)
+      options:
+        - label: 我同意遵守本项目的行为准则
+          required: true
